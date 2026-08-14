@@ -1,12 +1,12 @@
 {
   "name": "skillfully",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Use your authenticated Skillfully skills in ChatGPT and Codex.",
   "author": {
     "name": "Skillfully",
-    "url": "https://skillfully.sh"
+    "url": "https://www.skillfully.sh"
   },
-  "homepage": "https://skillfully.sh/integrations/skillfully",
+  "homepage": "https://www.skillfully.sh/integrations/skillfully",
   "repository": "https://github.com/skillfully-sh/codex",
   "license": "Proprietary",
   "keywords": ["skillfully", "agent-skills", "mcp"],
@@ -19,9 +19,9 @@
     "developerName": "Skillfully",
     "category": "Developer Tools",
     "capabilities": ["Read"],
-    "websiteURL": "https://skillfully.sh",
-    "privacyPolicyURL": "https://skillfully.sh/privacy-policy",
-    "termsOfServiceURL": "https://skillfully.sh/terms-of-service",
+    "websiteURL": "https://www.skillfully.sh",
+    "privacyPolicyURL": "https://www.skillfully.sh/privacy-policy",
+    "termsOfServiceURL": "https://www.skillfully.sh/terms-of-service",
     "defaultPrompt": [
       "Use the best Skillfully skill for this task",
       "Show my available Skillfully skills"
