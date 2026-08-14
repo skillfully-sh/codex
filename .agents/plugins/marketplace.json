@@ -1,0 +1,20 @@
+{
+  "name": "skillfully",
+  "interface": {
+    "displayName": "Skillfully"
+  },
+  "plugins": [
+    {
+      "name": "skillfully",
+      "source": {
+        "source": "local",
+        "path": "./plugins/skillfully"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
