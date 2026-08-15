@@ -1,5 +1,5 @@
 # Skillfully for ChatGPT and Codex
 
-This plugin connects ChatGPT and Codex to the authenticated Skillfully MCP server. Browser OAuth starts during installation or first use; no manual token is required.
+Install the plugin and open a Skillfully action. The remote MCP connection launches browser OAuth and then exposes the user's current accessible Skillfully catalog. No manual token is required.
 
-The plugin exposes the current accessible Skillfully catalog, manifest and runtime-safe file access, and explicitly confirmed feedback.
+To disconnect, revoke Skillfully from the client's integrations or MCP settings.
