@@ -1,7 +1,7 @@
 {
   "name": "skillfully",
-  "version": "1.0.3",
-  "description": "Use your authenticated Skillfully skills in ChatGPT and Codex.",
+  "version": "1.0.4",
+  "description": "Put expert methods to work with less guesswork",
   "author": {
     "name": "Skillfully",
     "url": "https://www.skillfully.sh"
@@ -18,8 +18,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Skillfully",
-    "shortDescription": "Use your Skillfully skills",
-    "longDescription": "Use published skills already available to your connected Skillfully account, send skill-quality feedback to their authors, and report missing capabilities. Skillfully records skill usage and associates submitted feedback with your account email.",
+    "shortDescription": "Put expert methods to work with less guesswork",
+    "longDescription": "Skillfully helps people apply an expert\u2019s methods to their own work, with less guesswork and less time spent translating advice into action. Learn through practice, develop better judgment, and approach unfamiliar tasks with guidance from practitioners you trust. Skillfully records skill usage and associates authorized skill-quality feedback with your account email.",
     "developerName": "Skillfully",
     "category": "Productivity",
     "capabilities": [
@@ -61,13 +61,13 @@
               "description": "Apply an authorized skill",
               "prompt": "Use my Decision Check skill to compare a small pilot with a full launch using this fictional example: a team is testing a new meeting format.",
               "tools_triggered": "list_skills, get_skill_manifest, read_skill_file, submit_skill_feedback",
-              "expected_behavior": "Read only current manifest-listed runtime files, apply the selected skill to the fictional example, and prepare one sanitized skill-quality report. Submit after the completed use when authorized by the user and host; otherwise request the required permission and leave feedback pending if declined. Never send the fictional task content in feedback."
+              "expected_behavior": "Read only current manifest-listed runtime files, apply the selected skill to the fictional example, and prepare one sanitized skill-quality report. After using the tools, with users permission, file a report to be submitted to the skill author for improvement purposes. Users must give permission via authorizing you to use the feedback tool via clicking the allow button on the harness interface you run inside; you do not need to ask them for this permission in conversation. If permission is declined or unavailable, leave feedback unsent and report it as pending without blocking the original task. Never send the fictional task content in feedback."
             },
             {
               "description": "Submit skill feedback and report a missing capability",
               "prompt": "Send this feedback about Decision Check: positive; The numbered decision steps were clear, but the final checklist needs a worked example. Also report that Skillfully needs a tool to compare two accessible skill versions.",
-              "tools_triggered": "list_skills, submit_skill_feedback, get_more_tools",
-              "expected_behavior": "Submit the exact authorized rating and skill-quality message to the selected skill author. The server associates it with the connected account email. Return acceptance only if accepted; do not retry an ambiguous write automatically. Send only the requested missing-capability description through get_more_tools, disclosed as a stored Skillfully product-feedback report; do not transmit conversation context or imply a tool was installed."
+              "tools_triggered": "list_skills, submit_skill_feedback, report_missing_capability",
+              "expected_behavior": "Submit the exact rating and skill-quality message to the selected skill author only after the user authorizes the feedback tool by clicking the allow button on the harness interface. Do not request this permission in conversation. The server associates it with the connected account email. Return acceptance only if accepted; do not retry an ambiguous write automatically. Send only the requested missing-capability description through report_missing_capability, disclosed as a stored Skillfully product-feedback report; do not transmit conversation context or imply a tool was installed."
             },
             {
               "description": "Explain expired access",
@@ -78,8 +78,8 @@
           ],
           "negative": [
             {
-              "description": "Unrelated weather request: Skillfully has no weather capability, so do not invoke its tools or report a missing capability unless asked.",
-              "prompt": "What will the weather be in Toronto tomorrow?"
+              "description": "Harness feedback permission declined or unavailable: complete the skill task and prepare one quality-only report. Users must authorize the feedback tool by clicking the allow button on the harness interface; do not ask for this permission in conversation. If permission is declined or unavailable, leave feedback unsent and pending without blocking the original task.",
+              "prompt": "Use Decision Check on this fictional pilot decision. I will decline the feedback tool permission in the harness. Complete the original task anyway."
             },
             {
               "description": "Sensitive feedback: do not transmit chat history, credentials or identifying task content; offer a sanitized skill-quality report.",
@@ -95,7 +95,7 @@
         "commerce_description": "The plugin accesses existing entitlements and sends authorized skill-quality feedback. It does not sell digital products, initiate subscriptions or process payments. Expired access links lead to informational account pages."
       },
       "publication": {
-        "release_notes": "Adds support and privacy metadata, accurate feedback disclosure, web-client instructions, and positive/negative reviewer scenarios. Server remediation is prepared on dev; production deployment, reviewer credentials, walkthrough video and end-to-end reviewer validation remain prerequisites before submission."
+        "release_notes": "Requires harness Allow permission for skill-quality feedback without asking for permission in conversation, clarifies authenticated delivery of author-published versioned skill files, and names the feature-report tool report_missing_capability. Production demo accounts and sample skills are prepared. The matching server update, native-client verification and walkthrough recording must be completed before submission."
       }
     }
   }
