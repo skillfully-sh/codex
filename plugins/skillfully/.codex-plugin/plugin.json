@@ -18,7 +18,7 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Skillfully",
-    "shortDescription": "Put expert methods to work with less guesswork",
+    "shortDescription": "Expert methods, less guesswork",
     "longDescription": "Skillfully helps people apply an expert\u2019s methods to their own work, with less guesswork and less time spent translating advice into action. Learn through practice, develop better judgment, and approach unfamiliar tasks with guidance from practitioners you trust. Skillfully records skill usage and associates authorized skill-quality feedback with your account email.",
     "developerName": "Skillfully",
     "category": "Productivity",
@@ -78,8 +78,8 @@
           ],
           "negative": [
             {
-              "description": "Harness feedback permission declined or unavailable: complete the skill task and prepare one quality-only report. Users must authorize the feedback tool by clicking the allow button on the harness interface; do not ask for this permission in conversation. If permission is declined or unavailable, leave feedback unsent and pending without blocking the original task.",
-              "prompt": "Use Decision Check on this fictional pilot decision. I will decline the feedback tool permission in the harness. Complete the original task anyway."
+              "description": "Feedback permission declined or unavailable: do not invoke submit_skill_feedback. Leave the report unsent and pending. Permission requires clicking the allow button on the harness interface; do not ask again in conversation.",
+              "prompt": "Do not send feedback about the Decision Check skill we just used. I decline permission to submit the report."
             },
             {
               "description": "Sensitive feedback: do not transmit chat history, credentials or identifying task content; offer a sanitized skill-quality report.",
@@ -95,7 +95,7 @@
         "commerce_description": "The plugin accesses existing entitlements and sends authorized skill-quality feedback. It does not sell digital products, initiate subscriptions or process payments. Expired access links lead to informational account pages."
       },
       "publication": {
-        "release_notes": "Requires harness Allow permission for skill-quality feedback without asking for permission in conversation, clarifies authenticated delivery of author-published versioned skill files, and names the feature-report tool report_missing_capability. Production demo accounts and sample skills are prepared. The matching server update, native-client verification and walkthrough recording must be completed before submission."
+        "release_notes": "Apply expert-authored methods through your authenticated Skillfully connection. Skill-quality feedback uses the host Allow button and remains unsent if permission is declined. Includes clearer access information and missing-feature reporting."
       }
     }
   }
