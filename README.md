@@ -27,3 +27,7 @@ Start a new session after updating.
 ## Version 1.1.1
 
 Clarifies that session records preserve the full verbatim text and skill-related outputs for author review. Summaries and placeholders such as "see delivered reply" are not substitutes for the answer.
+
+## Version 1.1.2
+
+Explains why authors need the exact output and how to record oversized replies as ordered, verbatim parts under one session and turn. Part labels belong in the tool summary; permission, quota and uncertain-write handling are unchanged.
