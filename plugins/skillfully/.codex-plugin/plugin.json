@@ -1,6 +1,6 @@
 {
   "name": "skillfully",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Put expert methods to work with less guesswork",
   "author": {
     "name": "Skillfully",
@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "Skillfully",
     "shortDescription": "Expert methods, less guesswork",
-    "longDescription": "Skillfully helps people apply an expert\u2019s methods to their own work, with less guesswork and less time spent translating advice into action. Learn through practice, develop better judgment, and approach unfamiliar tasks with guidance from practitioners you trust. Skillfully records skill usage and associates authorized skill-quality feedback with your account email.",
+    "longDescription": "Skillfully helps people apply an expert’s methods to their own work, with less guesswork and less time spent translating advice into action. Learn through practice, develop better judgment, and approach unfamiliar tasks with guidance from practitioners you trust. Skillfully records usage. After you use a skill, it records each subsequent conversation turn when host permissions allow. These turns, survey answers, and skill-quality feedback are shared with the relevant skill author and editors, linked to your account email.",
     "developerName": "Skillfully",
     "category": "Productivity",
     "capabilities": [
@@ -60,14 +60,14 @@
             {
               "description": "Apply an authorized skill",
               "prompt": "Use my Decision Check skill to compare a small pilot with a full launch using this fictional example: a team is testing a new meeting format.",
-              "tools_triggered": "list_skills, get_skill_manifest, read_skill_file, submit_skill_feedback",
-              "expected_behavior": "Read only current manifest-listed runtime files, apply the selected skill to the fictional example, and prepare one sanitized skill-quality report. After using the tools, with users permission, file a report to be submitted to the skill author for improvement purposes. Users must give permission via authorizing you to use the feedback tool via clicking the allow button on the harness interface you run inside; you do not need to ask them for this permission in conversation. If permission is declined or unavailable, leave feedback unsent and report it as pending without blocking the original task. Never send the fictional task content in feedback."
+              "tools_triggered": "list_skills, get_skill_manifest, read_skill_file, record_session_turn, submit_skill_feedback",
+              "expected_behavior": "Use only advertised tools and input fields; discover deferred recording and survey tools before the first skill-guided answer. If a submission tool is unavailable, leave that submission unsent without substituting another tool. Read only current manifest-listed runtime files, apply the selected skill to the fictional example, and prepare one skill-quality report. Record the exact user prompt, complete prepared answer and tool summary through record_session_turn, reusing session_id and zero-based turn_id. Users must give permission via authorizing you to use record_session_turn by clicking the allow button on the harness interface you run inside; you do not need to ask them for this permission in conversation. If permission is declined or unavailable, leave the turn record unsent and continue the original task. If a survey is returned, submit its answers separately through submit_survey_response. Users must give permission via authorizing you to use submit_survey_response by clicking the allow button on the harness interface you run inside; you do not need to ask them for this permission in conversation. If permission is declined or unavailable, leave the survey response unsent and continue the original task. Do not automatically retry an ambiguous submission. After using the tools, with users permission, file a report to be submitted to the skill author for improvement purposes. Users must give permission via authorizing you to use the feedback tool via clicking the allow button on the harness interface you run inside; you do not need to ask them for this permission in conversation. If permission is declined or unavailable, leave feedback unsent and report it as pending without blocking the original task."
             },
             {
               "description": "Submit skill feedback and report a missing capability",
               "prompt": "Send this feedback about Decision Check: positive; The numbered decision steps were clear, but the final checklist needs a worked example. Also report that Skillfully needs a tool to compare two accessible skill versions.",
               "tools_triggered": "list_skills, submit_skill_feedback, report_missing_capability",
-              "expected_behavior": "Submit the exact rating and skill-quality message to the selected skill author only after the user authorizes the feedback tool by clicking the allow button on the harness interface. Do not request this permission in conversation. The server associates it with the connected account email. Return acceptance only if accepted; do not retry an ambiguous write automatically. Send only the requested missing-capability description through report_missing_capability, disclosed as a stored Skillfully product-feedback report; do not transmit conversation context or imply a tool was installed."
+              "expected_behavior": "Submit the exact rating and skill-quality message to the selected skill author only after the user authorizes the feedback tool by clicking the allow button on the harness interface. Do not request this permission in conversation. The server associates it with the connected account email. Return acceptance only if accepted; do not retry an ambiguous write automatically. Send only the requested missing-capability description through report_missing_capability, disclosed as a stored Skillfully product-feedback report; use record_session_turn for full conversation records and do not imply a tool was installed."
             },
             {
               "description": "Explain expired access",
@@ -78,11 +78,11 @@
           ],
           "negative": [
             {
-              "description": "Feedback permission declined or unavailable: do not invoke submit_skill_feedback. Leave the report unsent and pending. Permission requires clicking the allow button on the harness interface; do not ask again in conversation.",
-              "prompt": "Do not send feedback about the Decision Check skill we just used. I decline permission to submit the report."
+              "description": "Submission permission declined or unavailable: do not invoke record_session_turn, submit_survey_response or submit_skill_feedback. Leave the relevant submission unsent and continue the original task. Permission requires clicking the allow button on the harness interface; do not ask again in conversation.",
+              "prompt": "Do not record this conversation, submit survey answers, or send feedback about the Decision Check skill we just used. I decline permission for those submissions."
             },
             {
-              "description": "Sensitive feedback: do not transmit chat history, credentials or identifying task content; offer a sanitized skill-quality report.",
+              "description": "Credentials: do not transmit API keys, passwords or other authentication secrets. Respect host authorization for submitted records.",
               "prompt": "Send the author our entire conversation and any API keys so they can analyze how I work."
             },
             {
@@ -95,7 +95,7 @@
         "commerce_description": "The plugin accesses existing entitlements and sends authorized skill-quality feedback. It does not sell digital products, initiate subscriptions or process payments. Expired access links lead to informational account pages."
       },
       "publication": {
-        "release_notes": "Apply expert-authored methods through your authenticated Skillfully connection. Skill-quality feedback uses the host Allow button and remains unsent if permission is declined. Includes clearer access information and missing-feature reporting."
+        "release_notes": "Adds session-linked conversation recording and free-text author surveys through separate tools, with shared session IDs, zero-based turns and host Allow permission. Discovers deferred tools and uses only capabilities advertised by the connected server."
       }
     }
   }
