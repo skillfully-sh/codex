@@ -31,3 +31,7 @@ Clarifies that session records preserve the full verbatim text and skill-related
 ## Version 1.1.2
 
 Explains why authors need the exact output and how to record oversized replies as ordered, verbatim parts under one session and turn. Part labels belong in the tool summary; permission, quota and uncertain-write handling are unchanged.
+
+## Version 1.2.0
+
+Reporting instructions now redact private identifiers, preserve skill-relevant details, and record one complete reply per call. A denied reporting call stops reporting for the conversation. When the connected server advertises idempotency keys, retries reuse the original submission without duplicating it; distinct replies remain separate. Refresh the plugin and start a new session to load this guidance. [Usage and update instructions](plugins/skillfully/README.md).
